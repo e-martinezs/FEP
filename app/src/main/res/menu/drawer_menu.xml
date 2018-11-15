@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/drawerMenu"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/drawerPlaces"
+            android:title="Places"/>
+
+        <item
+            android:id="@+id/drawerOrder"
+            android:title="Order"/>
+    </group>
+</menu>
