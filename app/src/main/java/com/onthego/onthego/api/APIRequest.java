@@ -189,6 +189,11 @@ public class APIRequest {
 
     public void setLoading(boolean loading) {
         this.loading = loading;
+        if (loading){
+            loadingLayout.setVisibility(View.VISIBLE);
+        }else{
+            loadingLayout.setVisibility(View.INVISIBLE);
+        }
     }
 
     public boolean isLogged() {

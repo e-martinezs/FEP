@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,8 @@ import com.onthego.onthego.database.viewmodels.OrderViewModel;
 import com.onthego.onthego.models.Food;
 import com.onthego.onthego.models.Order;
 import com.onthego.onthego.utils.ImageLoader;
+
+import java.text.DecimalFormat;
 
 public class FoodDetailFragment extends Fragment {
 
@@ -34,10 +37,11 @@ public class FoodDetailFragment extends Fragment {
         TextView priceTextView = view.findViewById(R.id.foodDetailPriceTextView);
         TextView descriptionTextView = view.findViewById(R.id.foodDetailDescriptionTextView);
         ImageView imageView = view.findViewById(R.id.foodDetailImageView);
-        Button buyButton = view.findViewById(R.id.foodDetailBuyButton);
+        ImageButton buyButton = view.findViewById(R.id.foodDetailBuyButton);
 
         nameTextView.setText(food.getName());
-        priceTextView.setText("$"+food.getPrice());
+        DecimalFormat df = new DecimalFormat("0.00##");
+        priceTextView.setText("$"+df.format(food.getPrice()));
         descriptionTextView.setText(food.getDescription());
         ImageLoader.loadImage(food.getImage(), imageView);
 

@@ -8,11 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.onthego.onthego.R;
 import com.onthego.onthego.fragments.FoodListFragment;
 import com.onthego.onthego.models.Place;
+import com.onthego.onthego.utils.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     public void onBindViewHolder(@NonNull PlaceViewHolder holder, int position) {
         final Place place = places.get(position);
         holder.nameTextView.setText(place.getName());
+        ImageLoader.loadImage(place.getImage(), holder.imageView);
         holder.cardView.setOnClickListener(new View.OnClickListener(){
 
             @Override
@@ -62,11 +65,13 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceAdapter.PlaceViewHol
     public class PlaceViewHolder extends RecyclerView.ViewHolder{
         private CardView cardView;
         private TextView nameTextView;
+        private ImageView imageView;
 
         public PlaceViewHolder(View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.placeCardview);
             nameTextView = itemView.findViewById(R.id.placeNameTextView);
+            imageView = itemView.findViewById(R.id.placeImageView);
         }
     }
 }

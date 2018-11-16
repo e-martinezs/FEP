@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.onthego.onthego.R;
 import com.onthego.onthego.models.Order;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
         Order order = orders.get(position);
         holder.nameTextView.setText(order.getName());
-        holder.priceTextView.setText("$"+order.getPrice());
+        DecimalFormat df = new DecimalFormat("0.00##");
+        holder.priceTextView.setText("$"+df.format(order.getPrice()));
     }
 
     @Override

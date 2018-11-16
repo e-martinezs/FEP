@@ -6,10 +6,10 @@
 
         <item
             android:id="@+id/drawerPlaces"
-            android:title="Places"/>
+            android:title="Restaurantes"/>
 
         <item
             android:id="@+id/drawerOrder"
-            android:title="Order"/>
+            android:title="Orden"/>
     </group>
 </menu>

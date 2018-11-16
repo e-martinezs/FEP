@@ -17,6 +17,7 @@ import com.onthego.onthego.fragments.FoodDetailFragment;
 import com.onthego.onthego.models.Food;
 import com.onthego.onthego.utils.ImageLoader;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,7 +47,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
     public void onBindViewHolder(@NonNull FoodAdapter.FoodViewHolder holder, int position) {
         final Food food = foods.get(position);
         holder.nameTextView.setText(food.getName());
-        holder.priceTextView.setText("$"+food.getPrice());
+        DecimalFormat df = new DecimalFormat("0.00##");
+        holder.priceTextView.setText("$"+df.format(food.getPrice()));
         ImageLoader.loadImage(food.getImage(), holder.imageView);
         holder.cardView.setOnClickListener(new View.OnClickListener(){
 
